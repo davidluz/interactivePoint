@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Detran Recurso</title>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery.rwdImageMaps.min.js"></script>
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+
+<body>
+	
+	<div id="ri-container">
+		<div id="overlay-black"><img src="imgs/overlay-black.png"></div>
+		<div id="line"><img src="imgs/line.png"></div>
+		<div id="tooltips" ></div>
+		<div id="contents"></div>
+
+        <!-- Não alterar estrutura padrão do FLUXO aqui - Conteúdos são montados dinamicamente no JS-->
+        
+        <div id="fluxo">
+        <img id="bg-img" src="imgs/bg1.png">
+        <div id="point1" class="points"> 
+		<img class="hvr-grow" src="imgs/circle.png">
+		<p class="text-hover"> Triagem > Mesa > Teste</p>
+		
+		<div class="text-overlay"><h1>Teste</h1></div>
+		</div>
+
+		<div id="point2" class="points"> 
+		<img class="hvr-grow" src="imgs/circle.png">
+		<p class="text-hover"> teste</p>
+		
+		</div>
+
+		<div id="point3" class="points"> 
+		<img class="hvr-grow" src="imgs/circle.png">
+		<p class="text-hover"> teste</p>
+		
+		</div>
+
+         
+		</div>
+	<div id="ctn-fluxo-1" class="ctns"></div>
+	<div id="ctn-fluxo-2" class="ctns"></div>
+	<div id="ctn-fluxo-3" class="ctns"></div>
+	<div id="ctn-fluxo-4" class="ctns"></div>
+	<div id="ctn-fluxo-5" class="ctns"></div>	
+	<div id="ctn-fluxo-6" class="ctns"></div>	
+	<div id="ctn-fluxo-7" class="ctns"></div>	
+	<div id="ctn-fluxo-8" class="ctns"></div>
+	<div id="ctn-fluxo-9" class="ctns"></div>
+	<div id="ctn-fluxo-10" class="ctns"></div>
+	<div id="ctn-fluxo-11" class="ctns"></div>
+	<div id="ctn-fluxo-12" class="ctns"></div>
+	<div id="ctn-fluxo-13" class="ctns"></div>
+	<div id="ctn-fluxo-14" class="ctns"></div>	
+
+
+	</div>
+</body>
+
+<script>
+
+$(document).ready(function(){
+    
+   // Verifica quanto pontos existem na estrutura do HTML e monta na página 
+   	var pontos = $("#fluxo").find('[class*="points"]');
+   	
+    
+   // Não usar id's nos seletores 	
+	$(".hvr-grow").hover(function(){
+
+    var elementID = $(this).closest('div').attr('id'); 
+	var elementIDFinal = elementID.substring(5, 6);
+	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
+	$(this).attr("src", "imgs/circle_hover.png");
+	$(this).next().show();
+    $(".hvr-grow").css("opacity", "0");
+	$(this).css("opacity", "1");
+	$(this).next().addClass('animated slideInUp');
+	$("#bg-img").attr("src", newSrc);
+	$("#bg-img").css("opacity", "0.2");
+	
+	
+	});
+
+	$(".hvr-grow").mouseleave(function(){
+	$(this).attr("src", "imgs/circle.png");
+	$(this).next().fadeOut('fast');
+	$(".hvr-grow").css("opacity", "1");
+	$("#bg-img").css("opacity", "0");
+	$("#bg-img").attr("src", "imgs/bg0.png");
+	});
+
+   $(".hvr-grow").click(function(){
+
+   	$(".hvr-grow").attr("src", "imgs/circle.png");
+
+   	 $("#line").css("opacity", '0');
+   $(".hvr-grow").off('mouseleave'); // MÉTODO OFF
+  
+	var elementID = $(this).closest('div').attr('id'); 
+	var elementIDFinal = elementID.substring(5, 6);
+	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
+
+	$("#bg-img").css("opacity", "1.0");
+	$("#bg-img").attr("src", newSrc);
+	/*$(".hvr-grow").unbind();*/
+
+	$(".hvr-grow").fadeOut();
+	$(".text-hover").fadeOut();
+	$(".text-overlay").fadeIn();
+	$(".text-overlay").addClass('animated fadeInUp');
+	$("#overlay-black").css("cursor","url('imgs/close.png'), auto");
+	$("#overlay-black").css("display", "inline");
+	 
+	
+	
+	
+	});
+
+
+
+ $("#overlay-black").click(function(){
+  $("#overlay-black").css("display", "none");
+  $("#bg-img").attr("src", "imgs/bg0.png");	
+ $("#line").css("opacity", '1');
+ 
+ $(".hvr-grow").show();
+ $(".hvr-grow").css('opacity','1');
+ $(".hvr-grow").on('mouseleave');
+
+
+ //$(".text-hover").css('opacity', '0');
+ $(".text-overlay").css('display', 'none');
+
+// Replica - melhorar
+$(".hvr-grow").hover(function(){
+     $(".hvr-grow").on('mouseleave');
+    var elementID = $(this).closest('div').attr('id'); 
+	var elementIDFinal = elementID.substring(5, 6);
+	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
+		
+	$(this).attr("src", "imgs/circle_hover.png");
+	$(this).next().show();
+    $(".hvr-grow").css("opacity", "0");
+	$(this).css("opacity", "1");
+	$(this).next().addClass('animated slideInUp');
+	$("#bg-img").attr("src", newSrc);
+	$("#bg-img").css("opacity", "0.2");
+	
+	
+	});
+
+$(".hvr-grow").mouseleave(function(){
+	$(this).attr("src", "imgs/circle.png");
+	$(this).next().fadeOut('fast');
+	$(".hvr-grow").css("opacity", "1");
+	$("#bg-img").css("opacity", "0");
+	$("#bg-img").attr("src", "imgs/bg0.png");
+	});
+ 		
+
+ });
+
+
+
+
+	
+
+});
+
+  
+
+
+</script>
+
+</html>

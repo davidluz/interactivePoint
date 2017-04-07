@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+#ri-container{
+font-family: 'Open Sans', sans-serif;
+
+}
+
+#ri-container img{
+max-width: 100%;
+height: auto;
+}
+
+.oculto{
+display: none;
+}
+
+
+
+img[usemap], map area{
+outline: none;
+}
+
+/* Grow */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  cursor: pointer;
+
+}
+
+
+
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.text-hover{
+color: #ffffff;	
+display: none;	
+background-color: #615184;
+font-size: 30px;
+max-width: 200px;
+left: 18px;
+top: 5px;
+position: absolute;
+z-index: 2 !important;
+}
+
+#fluxo{
+max-width: 800px;
+max-height: 600px;
+z-index: 1;
+}
+
+/*#fluxo::after {
+  min-width: 800px;
+  min-height: 600px;
+  content: "";
+  background: url("../imgs/fluxo1.png");
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -9999;  
+}*/
+
+.hvr-grow{
+	/*width: 2% !important;*/
+}
+
+.points{
+	position: relative;
+}
+
+
+#point1{
+	margin-left: 0px;
+}
+
+#point2{
+	margin-left: 200px;
+}
+
+#point3{
+	margin-left: 400px;
+}
+
+#bg-img{
+opacity: 0;
+z-index: -1;
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+/*cursor:url('../imgs/close.png'), auto;*/
+}
+
+.text-overlay{
+display: none;
+position: absolute;
+top: 300px;
+left: 20px;
+z-index: 5 !important;
+color: white;
+}
+
+#overlay-black{
+position: absolute;
+z-index: 3;
+left: 0px;
+top: 0px;
+opacity: 0.5;
+display: none;
+}
+
+#line{
+  position: absolute;
+  left: 0px;
+top: 0px;
+}
+
+
