@@ -1,4 +1,134 @@
 $(document).ready(function(){
-$('img[usemap]').rwdImageMaps();
+    $('img[usemap]').rwdImageMaps();
+   // Verifica quanto pontos existem na estrutura do HTML e monta na página 
+   	var pontos = $("#fluxo").find('[class*="points"]');
+   	
+    
+   // Não usar id's nos seletores 	
+	$(".hvr-grow").hover(function(){
+    $("#clique-dica").css("opacity","1");
+    var elementID = $(this).closest('div').attr('id'); 
+	var elementIDFinal = elementID.substring(5, 6);
+	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
+	$(this).attr("src", "imgs/circle_hover.png");
+	$(this).next().show();
+    $(".hvr-grow").css("opacity", "0");
+	$(this).css("opacity", "1");
+	$(this).next().addClass('animated slideInUp');
+	$("#bg-img").attr("src", newSrc);
+	$("#bg-img").css("opacity", "0.2");
+	$(".labels").css("opacity", "0");
+	//$(".numeros").css("opacity", "0");
+	
+	
+	});
+
+	$(".hvr-grow").mouseout(function(){
+		$("#clique-dica").css("opacity","0");
+
+	});
+
+
+	$(".hvr-grow").mouseleave(function(){
+	$("#clique-dica").css("opacity","0");
+	$(this).attr("src", "imgs/circle.png");
+	$(this).next().fadeOut('fast');
+	$(".hvr-grow").css("opacity", "1");
+	$("#bg-img").css("opacity", "0");
+	$("#bg-img").attr("src", "imgs/bg0.png");
+	$(".labels").css("opacity", "1");
+	//$(".numeros").css("opacity", "1");
+	$("#clique-dica").css("opacity","0");
+	});
+
+   $(".hvr-grow").click(function(){
+
+   	$(".hvr-grow").attr("src", "imgs/circle.png");
+
+   	 $("#line").css("opacity", '0');
+   $(".hvr-grow").off('mouseleave'); // MÉTODO OFF
+  
+	var elementID = $(this).closest('div').attr('id'); 
+	var elementIDFinal = elementID.substring(5, 6);
+	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
+    var conteudoSelecionado = '#ctn-fluxo-'+elementIDFinal;
+    var overlaySelecionado = '#overlay'+elementIDFinal;
+	$(conteudoSelecionado).show();
+    $(conteudoSelecionado).addClass("animated slideInLeft");
+
+	$("#bg-img").css("opacity", "1.0");
+	$("#bg-img").attr("src", newSrc);
+	/*$(".hvr-grow").unbind();*/
+    $(".numeros").css("opacity", "0");
+	$(".hvr-grow").fadeOut();
+	$(".text-hover").fadeOut();
+	$("#clique-dica").css("opacity","0");
+	
+	$(overlaySelecionado).fadeIn();
+	$(overlaySelecionado).addClass('animated fadeInUp');
+
+	$("#overlay-black").css("cursor","url('imgs/close.png'), auto");
+	$("#overlay-black").css("display", "inline");
+	$(".labels").css("opacity", "0");
+	$(".numeros").css("opacity", "0"); 
+	
+	
+	
+	});
+
+
+
+ $("#overlay-black").click(function(){
+ 	$(".ctns").fadeOut();
+ 	$("#clique-dica").css("opacity","0");
+  $("#overlay-black").css("display", "none");
+  $("#bg-img").attr("src", "imgs/bg0.png");	
+ $("#line").css("opacity", '1');
+ 
+  $(".numeros").css("opacity", "1");
+ $(".hvr-grow").show();
+ $(".hvr-grow").css('opacity','1');
+ $(".hvr-grow").on('mouseleave');
+ $(".labels").css("opacity", "1");
+	$(".numeros").css("opacity", "1");
+
+ //$(".text-hover").css('opacity', '0');
+ $(".text-overlay").css('display', 'none');
+
+// Replica - melhorar
+$(".hvr-grow").hover(function(){
+     $(".hvr-grow").on('mouseleave');
+    var elementID = $(this).closest('div').attr('id'); 
+	var elementIDFinal = elementID.substring(5, 6);
+	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
+		
+	$(this).attr("src", "imgs/circle_hover.png");
+	$(this).next().show();
+    $(".hvr-grow").css("opacity", "0");
+	$(this).css("opacity", "1");
+	$(this).next().addClass('animated slideInUp');
+	$("#bg-img").attr("src", newSrc);
+	$("#bg-img").css("opacity", "0.2");
+	
+	
+	});
+
+$(".hvr-grow").mouseleave(function(){
+	$(this).attr("src", "imgs/circle.png");
+	$(this).next().fadeOut('fast');
+	$(".hvr-grow").css("opacity", "1");
+	$("#bg-img").css("opacity", "0");
+	$("#bg-img").attr("src", "imgs/bg0.png");
+	});
+ 		
+
+ });
+
+
+
+
+	
+
 });
 
+  

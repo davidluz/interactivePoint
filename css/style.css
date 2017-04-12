@@ -10,6 +10,11 @@ max-width: 100%;
 height: auto;
 }
 
+.ctns{
+  display: none;
+  position: absolute;
+  margin-top: 450px;
+}
 .oculto{
 display: none;
 }
@@ -46,12 +51,13 @@ outline: none;
 color: #ffffff;	
 display: none;	
 background-color: #615184;
-font-size: 30px;
-max-width: 200px;
+font-size: 18px;
+min-width: 300px;
 left: 18px;
-top: 5px;
+margin-top: 10px;
 position: absolute;
 z-index: 2 !important;
+padding: 10px
 }
 
 #fluxo{
@@ -80,21 +86,12 @@ z-index: 1;
 }
 
 .points{
-	position: relative;
+	position: absolute;
+  z-index: 9999;
 }
 
 
-#point1{
-	margin-left: 0px;
-}
 
-#point2{
-	margin-left: 200px;
-}
-
-#point3{
-	margin-left: 400px;
-}
 
 #bg-img{
 opacity: 0;
@@ -109,11 +106,20 @@ right: 0;
 
 .text-overlay{
 display: none;
-position: absolute;
-top: 300px;
-left: 20px;
-z-index: 5 !important;
+
+top: 300px !important;
 color: white;
+background: none repeat scroll 0 0 #354C6C;
+background: none repeat scroll 0 0 rgba(0,0,0,.5);
+color: #fff;
+text-shadow: 0 0 1px rgba(0,0,0,.5);
+font-size: 14px;
+padding: 10px;
+border-left: 4px solid #675087;
+width: 800px;
+pointer-events: none;
+position: absolute;
+clear: both;
 }
 
 #overlay-black{
@@ -121,7 +127,7 @@ position: absolute;
 z-index: 3;
 left: 0px;
 top: 0px;
-opacity: 0.5;
+opacity: 0.0;
 display: none;
 }
 
@@ -132,3 +138,73 @@ top: 0px;
 }
 
 
+#point1{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#point2{
+ 
+  margin-top: 10px;
+  margin-left: 200px;
+}
+
+#point3{
+   margin-top: 10px;
+   margin-left: 400px;
+}
+
+.numeros{
+position: absolute;
+z-index: 9999;
+color: #ffffff;
+pointer-events: none;
+font-size: 14px;
+}
+
+#n1{
+margin-left: 32px;
+margin-top: 15px;
+}
+
+#n2{
+margin-left: 211px;
+margin-top: 15px;
+}
+
+#n3{
+margin-left: 411px;
+margin-top: 15px;
+}
+
+#label-1{
+top: 40px;
+left: 40px;
+}
+
+#label-2{
+top: 40px;
+left: 220px;
+}
+
+#label-3{
+top: 40px;
+left: 420px;
+}
+
+.labels{
+ position: absolute;
+ font-size: 13px;
+ word-break: normal;
+ width: 150px;
+ z-index: 9999;
+ pointer-events: none;
+}
+
+
+#clique-dica{
+position: absolute;
+margin-left: 700px;
+margin-top: 420px;
+opacity: 0;
+}
