@@ -13,13 +13,12 @@ $(document).ready(function(){
 	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
 	$(this).attr("src", "imgs/circle_hover.png");
 	$(this).next().show();
-    $(".hvr-grow").css("opacity", "0");
-	$(this).css("opacity", "1");
-	$(this).next().addClass('animated slideInUp');
+    	$(this).next().addClass('animated slideInUp');
 	$("#bg-img").attr("src", newSrc);
 	$("#bg-img").css("opacity", "0.2");
-	$(".labels").css("opacity", "0");
+	//$(".labels").css("opacity", "0");
 	//$(".numeros").css("opacity", "0");
+	$(".labels").hide();
 	});
 
 	
@@ -34,10 +33,10 @@ $(document).ready(function(){
 	$("#clique-dica").css("opacity","0");
 	$(this).attr("src", "imgs/circle.png");
 	$(this).next().fadeOut('fast');
-	$(".hvr-grow").css("opacity", "1");
+	
 	$("#bg-img").css("opacity", "0");
 	$("#bg-img").attr("src", "imgs/bg0.png");
-	$(".labels").css("opacity", "1");
+	$(".labels").show();
 	//$(".numeros").css("opacity", "1");
 	$("#clique-dica").css("opacity","0");
 	});
@@ -69,7 +68,7 @@ $(document).ready(function(){
 	$(overlaySelecionado).addClass('animated fadeInUp');
 	$("#overlay-black").css("cursor","url('imgs/close.png'), auto");
 	$("#overlay-black").css("display", "inline");
-	$(".labels").css("opacity", "0");
+	$(".labels").hide();
 	$(".numeros").css("opacity", "0"); 
 	});
 
@@ -86,7 +85,7 @@ $(document).ready(function(){
  $(".hvr-grow").show();
  $(".hvr-grow").css('opacity','1');
  $(".hvr-grow").on('mouseleave');
- $(".labels").css("opacity", "1");
+ $(".labels").show();
 	$(".numeros").css("opacity", "1");
 
  //$(".text-hover").css('opacity', '0');
@@ -101,7 +100,7 @@ $(".hvr-grow").hover(function(){
 		
 	$(this).attr("src", "imgs/circle_hover.png");
 	$(this).next().show();
-    $(".hvr-grow").css("opacity", "0");
+    
 	$(this).css("opacity", "1");
 	$(this).next().addClass('animated slideInUp');
 	$("#bg-img").attr("src", newSrc);
