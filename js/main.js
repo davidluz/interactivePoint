@@ -2,7 +2,8 @@ $(document).ready(function(){
     $('img[usemap]').rwdImageMaps();
    // Verifica quanto pontos existem na estrutura do HTML e monta na página 
    	var pontos = $("#fluxo").find('[class*="points"]');
-   	
+   
+
     
    // Não usar id's nos seletores 	
 	$(".hvr-grow").hover(function(){
@@ -19,11 +20,11 @@ $(document).ready(function(){
 	$("#bg-img").css("opacity", "0.2");
 	$(".labels").css("opacity", "0");
 	//$(".numeros").css("opacity", "0");
-	
-	
 	});
 
+	
 	$(".hvr-grow").mouseout(function(){
+		$("#bg-img").css("opacity", "1");
 		$("#clique-dica").css("opacity","0");
 
 	});
@@ -42,14 +43,15 @@ $(document).ready(function(){
 	});
 
    $(".hvr-grow").click(function(){
-
+    
+    setTimeout(function(){ $("#bg-img").css("opacity", "1"); }, 100);
    	$(".hvr-grow").attr("src", "imgs/circle.png");
 
    	 $("#line").css("opacity", '0');
    $(".hvr-grow").off('mouseleave'); // MÉTODO OFF
   
 	var elementID = $(this).closest('div').attr('id'); 
-	var elementIDFinal = elementID.substring(5, 6);
+	var elementIDFinal = elementID.substring(5, 7);
 	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
     var conteudoSelecionado = '#ctn-fluxo-'+elementIDFinal;
     var overlaySelecionado = '#overlay'+elementIDFinal;
@@ -63,17 +65,12 @@ $(document).ready(function(){
 	$(".hvr-grow").fadeOut();
 	$(".text-hover").fadeOut();
 	$("#clique-dica").css("opacity","0");
-	
 	$(overlaySelecionado).fadeIn();
 	$(overlaySelecionado).addClass('animated fadeInUp');
-
 	$("#overlay-black").css("cursor","url('imgs/close.png'), auto");
 	$("#overlay-black").css("display", "inline");
 	$(".labels").css("opacity", "0");
 	$(".numeros").css("opacity", "0"); 
-	
-	
-	
 	});
 
 
@@ -99,7 +96,7 @@ $(document).ready(function(){
 $(".hvr-grow").hover(function(){
      $(".hvr-grow").on('mouseleave');
     var elementID = $(this).closest('div').attr('id'); 
-	var elementIDFinal = elementID.substring(5, 6);
+	var elementIDFinal = elementID.substring(5, 7);
 	var newSrc = 'imgs/bg'+elementIDFinal+'.png';
 		
 	$(this).attr("src", "imgs/circle_hover.png");
@@ -117,7 +114,7 @@ $(".hvr-grow").mouseleave(function(){
 	$(this).attr("src", "imgs/circle.png");
 	$(this).next().fadeOut('fast');
 	$(".hvr-grow").css("opacity", "1");
-	$("#bg-img").css("opacity", "0");
+	//$("#bg-img").css("opacity", "0");
 	$("#bg-img").attr("src", "imgs/bg0.png");
 	});
  		
@@ -125,9 +122,6 @@ $(".hvr-grow").mouseleave(function(){
  });
 
 
-
-
-	
 
 });
 
