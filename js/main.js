@@ -42,12 +42,13 @@ $(document).ready(function(){
 	});
 
    $(".hvr-grow").click(function(){
-    
+  
     setTimeout(function(){ $("#bg-img").css("opacity", "1"); }, 100);
    	$(".hvr-grow").attr("src", "imgs/circle.png");
 
    	 $("#line").css("opacity", '0');
    $(".hvr-grow").off('mouseleave'); // MÉTODO OFF
+
   
 	var elementID = $(this).closest('div').attr('id'); 
 	var elementIDFinal = elementID.substring(5, 7);
@@ -70,6 +71,7 @@ $(document).ready(function(){
 	$("#overlay-black").css("display", "inline");
 	$(".labels").hide();
 	$(".numeros").css("opacity", "0"); 
+
 	});
 
 
@@ -120,6 +122,11 @@ $(".hvr-grow").mouseleave(function(){
 
  });
 
+
+window.addEventListener('resize', function () { 
+    "use strict";
+    location.reload(); 
+});
 
 
 });
